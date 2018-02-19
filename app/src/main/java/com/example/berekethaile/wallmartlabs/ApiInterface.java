@@ -11,6 +11,6 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
 
-    @GET("v1/paginated/items?format=json")
-    Call<Products> getProducts(@Query("apiKey") String api_key);
+    @GET("v1/paginated/items?")
+    Call<Items> getProducts(@Query("format") String format, @Query("apiKey") String api_key);
 }

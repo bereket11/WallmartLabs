@@ -1,11 +1,7 @@
 package com.example.berekethaile.wallmartlabs;
 
-import android.content.ClipData;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 /**
  * Created by berekethaile on 2/1/18.
@@ -23,17 +19,32 @@ public class Products {
 
     @SerializedName("salePrice")
     @Expose
-    private Integer itemSale;
+    private Double itemSale;
 
-    /*@SerializedName("thumbnailImage")
+    @SerializedName("brandName")
     @Expose
-    private String itemImage;*/
+    private String itemBrand;
 
-    public Products(Integer id, String itemName, Integer itemSale, String itemImage) {
+    @SerializedName("shortDescription")
+    @Expose
+    private String itemDesc;
+
+    @SerializedName("attributes")
+    @Expose
+    private Attributes mAttributes;
+
+    @SerializedName("thumbnailImage")
+    @Expose
+    private String itemImage;
+
+    public Products(Integer id, String itemName, Double itemSale, String itemImage, String itemDesc, String itemBrand, Attributes attributes) {
         this.id = id;
         this.itemName = itemName;
         this.itemSale = itemSale;
-        //this.itemImage = itemImage;
+        this.itemDesc= itemDesc;
+        this.itemImage = itemImage;
+        this.mAttributes = attributes;
+        this.itemBrand= itemBrand;
     }
 
     public Integer getId() {
@@ -44,13 +55,13 @@ public class Products {
         return itemName;
     }
 
-    public Integer getItemSale() {
+    public Double getItemSale() {
         return itemSale;
     }
 
-   /* public String getItemImage() {
+    public String getItemImage() {
         return itemImage;
-    }*/
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -60,12 +71,36 @@ public class Products {
         this.itemName = itemName;
     }
 
-    public void setItemSale(Integer itemSale) {
+    public void setItemSale(Double itemSale) {
         this.itemSale = itemSale;
     }
 
-   /* public void setItemImage(String itemImage) {
+    public void setAttributes(Attributes attributes) {
+        mAttributes = attributes;
+    }
+
+    public Attributes getAttributes() {
+        return mAttributes;
+    }
+
+    public void setItemImage(String itemImage) {
         this.itemImage = itemImage;
-    }*/
+    }
+
+    public String getItemDesc() {
+        return itemDesc;
+    }
+
+    public void setItemDesc(String itemDesc) {
+        this.itemDesc = itemDesc;
+    }
+
+    public void setItemBrand(String itemBrand) {
+        this.itemBrand = itemBrand;
+    }
+
+    public String getItemBrand() {
+        return itemBrand;
+    }
 }
 
